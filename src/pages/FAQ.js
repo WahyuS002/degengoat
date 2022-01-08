@@ -1,5 +1,5 @@
-import { useState } from 'react'
 import Navbar from '../components/public/Navbar'
+import Footer from '../components/public/Footer'
 import Index from '../components/faq/Index'
 
 export default function FAQ() {
@@ -7,6 +7,9 @@ export default function FAQ() {
         <div>
             <Navbar />
             <Index />
+            <div className="mt-40">
+                <Footer />
+            </div>
         </div>
     )
 }

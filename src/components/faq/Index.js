@@ -14,7 +14,7 @@ const faq = [
     },
     {
         number: 3,
-        question: 'lorem abxzvxcv',
+        question: 'Lorem ipsum dolor?',
         answer: 'Dummy Text',
     },
 ]
