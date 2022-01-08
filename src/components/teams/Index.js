@@ -37,12 +37,12 @@ const teams = [
 export default function Index() {
     return (
         <>
-            <div className="mt-12 px-24">
+            <div className="md:mt-12 px-6 md:px-24">
                 <div className="text-center">
-                    <h1 className="text-5xl font-semibold">Meet Our Team</h1>
-                    <p className="text-gray-300 mt-4 text-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium aspernatur doloremque</p>
+                    <h1 className="text-3xl md:text-5xl font-semibold">Meet Our Team</h1>
+                    <p className="text-gray-300 mt-4 text-base md:text-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium aspernatur doloremque</p>
                 </div>
-                <div className="grid grid-cols-3 gap-x-44 gap-y-16 mt-14">
+                <div className="grid grid-rows-1 md:grid-cols-3 md:gap-x-44 gap-y-12 md:gap-y-16 mt-14">
                     {teams.map((team) => (
                         <div>
                             <img src={team.pfp} className="rounded-full" alt="Team1" />

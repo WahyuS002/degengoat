@@ -30,7 +30,7 @@ export default function Index() {
     }
 
     return (
-        <div className="px-6 md:px-24 mt-12">
+        <div className="px-6 md:px-24 md:mt-12">
             <div className="md:grid md:grid-cols-6 gap-12 items-center">
                 <div className="md:col-span-2">
                     <img src={FaqImage} alt="" />
