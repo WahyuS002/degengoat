@@ -3,7 +3,7 @@ import React from 'react'
 export default function About() {
     return (
         <div className="px-6 md:px-24">
-            <div className="md:grid gmd:rid-cols-6 items-center">
+            <div className="md:grid md:grid-cols-6 items-center">
                 <div className="md:col-span-3">
                     <h2 className="text-3xl md:text-5xl font-semibold">
                         What Is <br /> Degen Goat?
