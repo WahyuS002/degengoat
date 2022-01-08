@@ -1,9 +1,10 @@
 import React from 'react'
 import CustomLink from '../CustomLink'
+import HamburgerMenu from './HamburgerMenu'
 
 export default function Navbar() {
     return (
-        <nav className="px-24 py-2 md:py-8">
+        <nav className="px-6 md:px-24 py-2 md:py-8">
             <div className="hidden md:block">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center">
@@ -44,6 +45,12 @@ export default function Navbar() {
                         </a>
                     </div>
                 </div>
+            </div>
+            <div className="flex md:hidden justify-between items-center w-min-full py-4">
+                <p className="uppercase font-semibold">
+                    DegenGoat<span className="ml-[0.09rem] inline-block w-[0.4rem] h-[0.4rem] rounded-full bg-primary"></span>
+                </p>
+                <HamburgerMenu />
             </div>
         </nav>
     )
