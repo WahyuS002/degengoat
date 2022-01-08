@@ -30,17 +30,17 @@ export default function Index() {
     }
 
     return (
-        <div className="px-24 mt-12">
-            <div className="grid grid-cols-6 gap-12 items-center">
-                <div className="col-span-2">
+        <div className="px-6 md:px-24 mt-12">
+            <div className="md:grid md:grid-cols-6 gap-12 items-center">
+                <div className="md:col-span-2">
                     <img src={FaqImage} alt="" />
                 </div>
-                <div className="col-span-3 col-start-4">
-                    <h1 className="text-5xl font-bold mb-10">F.A.Q.</h1>
+                <div className="md:col-span-3 md:col-start-4 mt-12 md:mt-0">
+                    <h1 className="text-4xl md:text-5xl font-bold mb-10">F.A.Q.</h1>
                     {faq.map((item, i) => (
                         <div className="bg-semi-black p-4 mb-4 cursor-pointer" key={item.number} onClick={() => toggle(i)}>
                             <div className="flex items-center justify-between">
-                                <div className="text-lg">
+                                <div className="text-base md:text-lg">
                                     {item.number}. {item.question}
                                 </div>
                                 <span>
@@ -70,7 +70,7 @@ export default function Index() {
                                         : 'max-h-0 transition-all duration-300 ease-[cubic-bezier(0,1,0,1)] overflow-hidden'
                                 }
                             >
-                                <p className="text-gray-300 mt-4">{item.answer}</p>
+                                <p className="text-gray-300 mt-4 text-sm md:text-base">{item.answer}</p>
                             </div>
                         </div>
                     ))}
