@@ -15,19 +15,19 @@ export default function Home() {
             <div className="mt-8">
                 <Index />
             </div>
-            <div className="mt-44">
+            <div className="mt-12 md:mt-44">
                 <About />
             </div>
-            <div className="mt-44">
+            <div className="mt-12 md:mt-44">
                 <Roadmap />
             </div>
-            <div className="mt-44">
+            <div className="mt-12 md:mt-44">
                 <Benefit />
             </div>
-            <div className="mt-44">
+            <div className="mt-12 md:mt-44">
                 <JoinUs />
             </div>
-            <div className="mt-44">
+            <div className="mt-12 md:mt-44">
                 <Footer />
             </div>
         </div>

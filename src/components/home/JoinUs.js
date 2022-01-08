@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function JoinUs() {
     return (
-        <div className="px-36">
+        <div className="px-6  md:px-36">
             <div className="w-full bg-semi-black py-16 rounded-xl">
-                <h3 className="text-5xl text-center font-bold leading-snug">
+                <h3 className="text-3xl md:text-5xl text-center font-bold leading-snug">
                     Join Us <br /> On Discord
                 </h3>
                 <a href="https://discord.gg/XVkSZBdp" target="_blank" className="flex justify-center mt-8" rel="noreferrer">

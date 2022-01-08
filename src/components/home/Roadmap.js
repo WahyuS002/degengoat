@@ -2,7 +2,7 @@ import React from 'react'
 
 function Roadmap() {
     return (
-        <div className="px-12 md:px-20 py-8 md:py-16 mx-auto max-w-[90rem]" id="roadmap">
+        <div className="px-6 md:px-20 py-8 md:py-16 mx-auto max-w-[90rem]" id="roadmap">
             <h2 className="text-3xl md:text-5xl font-semibold leading-tight text-center">Degen Goat Roadmap</h2>
             <div className="relative max-w-7xl h-full mt-12 md:mt-24">
                 <div className="absolute left-0 md:left-1/2 ml-4 md:ml-0 border border-semi-black h-full"></div>
