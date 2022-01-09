@@ -44,7 +44,7 @@ function Roadmap() {
                     <div className="bg-semi-black shadow-2xl shadow-gray-400/10 rounded-xl  w-full md:w-5/12 p-6 md:px-8 md:py-6 ml-8 md:ml-0">
                         <h3 className="font-semibold text-base md:text-lg">Shuffle Schedule</h3>
                         <p className="mt-3 leading-relaxed tracking-wide text-gray-500 text-sm md:text-base">
-                            First minting price is 25A and keep increasing every multiple of 100. We will announce the shuffle schedule, don't miss it!
+                            First minting price is 25A and keep increasing. We will announce the shuffle schedule, don't miss it! 50A is the maximum mint price.
                         </p>
                     </div>
                 </div>
@@ -57,7 +57,7 @@ function Roadmap() {
                         <h3 className="font-semibold text-base md:text-lg">Degen Goat Bank opening</h3>
                         <p className="mt-3 leading-relaxed tracking-wide text-gray-500 text-sm md:text-base">
                             20% of TOTAL SALES and 50% of royalty will go to Degen Goat Bank. It will be used wisely according to the wishes of the community, such as supporting other projects, sweep
-                            the floor, allocation for investing on hidden gem, etc.
+                            the floor, allocation for investing on hidden gem, shitcoin party, etc.
                         </p>
                     </div>
                 </div>
@@ -77,11 +77,8 @@ function Roadmap() {
                         <div className="bg-semi-black w-8 h-8 rounded-full"></div>
                     </div>
                     <div className="bg-semi-black shadow-2xl shadow-gray-400/10 rounded-xl  w-full md:w-5/12 p-6 md:px-8 md:py-6 ml-8 md:ml-0">
-                        <h3 className="font-semibold text-base md:text-lg">420 Auction</h3>
-                        <p className="mt-3 leading-relaxed tracking-wide text-gray-500 text-sm md:text-base">
-                            This is one of the Mutant, Lava Goat! The other Lava and mutant Goat is on the shuffle. Unlike other project, we give the opportunity to the community to get the rarest
-                            Goat on shuffle
-                        </p>
+                        <h3 className="font-semibold text-base md:text-lg">Algo NFT competition</h3>
+                        <p className="mt-3 leading-relaxed tracking-wide text-gray-500 text-sm md:text-base">We will announce about the competition, stay tune!</p>
                     </div>
                 </div>
                 <div className="mb-8 flex justify-between items-center w-full md:flex-row-reverse">
@@ -92,7 +89,7 @@ function Roadmap() {
                     <div className="bg-semi-black shadow-2xl shadow-gray-400/10 rounded-xl  w-full md:w-5/12 p-6 md:px-8 md:py-6 ml-8 md:ml-0">
                         <h3 className="font-semibold text-base md:text-lg">Private VR art Gallery</h3>
                         <p className="mt-3 leading-relaxed tracking-wide text-gray-500 text-sm md:text-base">
-                            We will create a private VR art gallery for Degen Goat (Would be on spatial or hubs mozilla) Degen Goat holders will have full access!
+                            We will create a private VR art gallery for Degen Goat (Would be on spatial, hubs mozilla or other platform) Degen Goat holders will have full access!
                         </p>
                     </div>
                 </div>
@@ -114,10 +111,11 @@ function Roadmap() {
                     <div className="bg-semi-black shadow-2xl shadow-gray-400/10 rounded-xl  w-full md:w-5/12 p-6 md:px-8 md:py-6 ml-8 md:ml-0">
                         <h3 className="font-semibold text-base md:text-lg">Collab with holders</h3>
                         <p className="mt-3 leading-relaxed tracking-wide text-gray-500 text-sm md:text-base">
-                            This will be the center of the collab edition between us as Degen Goat holders. You are the one who decides whether you want to sell or auction. As creator of Derivative,
-                            90% of the sales will be transferred directly to your wallet, 10% will go to Degen Goat Bank. There is no rarity on this edition.
+                            This will be the center of the collab edition between us as Degen Goat holders. As creator of Derivative, 90% of the sales will be transferred directly to your wallet, 10%
+                            will go to Degen Goat Bank. There is no rarity on this edition.
                             <br />
-                            You can also create and sell your own derivative art without having to rely on us, The rest of the community will help to shill your artwork!
+                            <br />
+                            You can also create and sell your own derivative art, the rest of the community will help to shill your artwork!
                         </p>
                     </div>
                 </div>

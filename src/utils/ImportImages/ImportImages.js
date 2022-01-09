@@ -6,8 +6,6 @@ export const HeroImages = {
     Hero5: require('../../assets/images/hero/5.png'),
     Hero6: require('../../assets/images/hero/6.png'),
     Hero7: require('../../assets/images/hero/7.png'),
-    Hero8: require('../../assets/images/hero/8.png'),
-    Hero9: require('../../assets/images/hero/9.png'),
 }
 
 export const TeamImages = {
