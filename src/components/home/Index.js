@@ -11,7 +11,7 @@ export default function Index() {
                 <p className="mt-3 text-lg md:text-2xl text-gray-400">The story about a degen scientist who conducted a crazy experiment on 1000 goats. </p>
             </div>
             <div className="w-full md:w-3/5 mt-6 md:mt-0">
-                <img src={Hero} alt="" />
+                <img className="hidden md:block" src={Hero} alt="" />
             </div>
         </div>
     )

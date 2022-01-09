@@ -1,36 +1,37 @@
 import React from 'react'
-import Images from '../../assets/TeamImages'
+// import Images from '../../assets/TeamImages'
+import { TeamImages } from '../../utils'
 
 const teams = [
     {
         name: 'Kim',
         position: 'Founder',
-        pfp: Images.Team1,
+        pfp: TeamImages.Team1,
     },
     {
         name: 'Dave',
         position: 'CEO',
-        pfp: Images.Team2,
+        pfp: TeamImages.Team2,
     },
     {
         name: 'Wahyu',
         position: 'Developer',
-        pfp: Images.Team3,
+        pfp: TeamImages.Team3,
     },
     {
         name: 'TermosEs',
         position: 'Coder',
-        pfp: Images.Team4,
+        pfp: TeamImages.Team4,
     },
     {
         name: 'Algonaut',
         position: 'Marketing',
-        pfp: Images.Team5,
+        pfp: TeamImages.Team5,
     },
     {
         name: 'Meri',
         position: 'Marketing',
-        pfp: Images.Team6,
+        pfp: TeamImages.Team6,
     },
 ]
 
