@@ -16,29 +16,27 @@ export default function Index() {
     return (
         <div>
             <div className="px-6 md:px-24 md:flex md:items-center md:gap-24">
-                <div className="w-full md:w-4/6">
+                <div className="w-full text-center">
                     <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                         Welcome To <br /> <span className="text-primary">Degen Goat</span>
                     </h1>
                 </div>
-                <div className="w-full md:w-3/5 mt-6 md:mt-0">
+                {/* <div className="w-full md:w-3/5 mt-6 md:mt-0">
                     <img className="hidden md:block" src={Hero} alt="" />
-                </div>
+                </div> */}
             </div>
-            <div className="block md:hidden">
-                <div class="w-full overflow-hidden relative">
-                    <div class="w-[3500px] flex animate-infinite-carousel">
-                        {images.map((image) => (
-                            <div class="w-[250px]">
-                                <img src={image.src} alt={image.alt} />
-                            </div>
-                        ))}
-                        {images.map((image) => (
-                            <div class="w-[250px] h-[100px]">
-                                <img src={image.src} alt={image.alt} />
-                            </div>
-                        ))}
-                    </div>
+            <div className="w-full overflow-hidden relative mt-12">
+                <div className="w-[3500px] flex animate-infinite-carousel">
+                    {images.map((image) => (
+                        <div className="w-[250px]" key={image.src}>
+                            <img src={image.src} alt={image.alt} />
+                        </div>
+                    ))}
+                    {images.map((image) => (
+                        <div className="w-[250px] h-[100px]" key={image.src}>
+                            <img src={image.src} alt={image.alt} />
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

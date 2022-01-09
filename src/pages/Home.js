@@ -12,7 +12,7 @@ export default function Home() {
     return (
         <div>
             <Navbar />
-            <div className="mt-8">
+            <div className="mt-20">
                 <Index />
             </div>
             <div className="mt-12 md:mt-44">
