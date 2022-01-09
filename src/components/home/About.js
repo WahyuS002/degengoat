@@ -4,11 +4,11 @@ import AboutImage from '../../assets/images/About.png'
 export default function About() {
     return (
         <div className="px-6 md:px-24">
-            <div className="md:grid md:grid-cols-7 items-center">
-                <div className="md:col-span-2">
+            <div className="flex flex-col-reverse md:flex-row items-center justify-between">
+                <div className="md:w-3/12">
                     <img src={AboutImage} alt="AboutImage" />
                 </div>
-                <div className="md:col-span-4 md:col-start-4 mt-4 md:mt-0">
+                <div className="md:w-7/12 mb-4 md:mb-0">
                     <p className="text-base md:text-lg text-gray-300 text-justify leading-relaxed">
                         Welcome to Degen Goat, the <span className="bg-primary px-2 py1 rounded-lg text-semi-black font-semibold mx-1">G.O.A.T</span> on Algorand blockchain! Degen Goat is a collection
                         of 1000 generated hand-drawn NFT with 9 different traits categories.
