@@ -1,14 +1,16 @@
 import React from 'react'
 import AboutImage from '../../assets/images/About.png'
+import TabAnimation from './TabAnimation'
 
 export default function About() {
     return (
         <div className="px-6 md:px-24">
             <div className="flex flex-col-reverse md:flex-row items-center justify-between">
-                <div className="md:w-3/12">
-                    <img src={AboutImage} alt="AboutImage" />
+                <div className="w-full md:w-4/12">
+                    {/* <img src={AboutImage} alt="AboutImage" /> */}
+                    <TabAnimation />
                 </div>
-                <div className="md:w-7/12 mb-4 md:mb-0">
+                <div className="md:w-7/12 mb-8 md:mb-0">
                     <p className="text-base md:text-lg text-gray-300 text-justify leading-relaxed">
                         Welcome to Degen Goat, the <span className="bg-primary px-2 py1 rounded-lg text-semi-black font-semibold mx-1">G.O.A.T</span> on Algorand blockchain! Degen Goat is a collection
                         of 1000 generated hand-drawn NFT with 9 different traits categories.

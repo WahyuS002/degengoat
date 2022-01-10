@@ -16,3 +16,12 @@ export const TeamImages = {
     Team5: require('../../assets/images/teams/5.png'),
     Team6: require('../../assets/images/teams/6.png'),
 }
+
+export const AboutImages = {
+    Image1: require('../../assets/images/about/1.png'),
+    Image2: require('../../assets/images/about/2.png'),
+    Image3: require('../../assets/images/about/3.png'),
+    Image4: require('../../assets/images/about/4.png'),
+    Image5: require('../../assets/images/about/5.png'),
+    Image6: require('../../assets/images/about/6.png'),
+}
