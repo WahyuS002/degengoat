@@ -1,5 +1,4 @@
 import React from 'react'
-import AboutImage from '../../assets/images/About.png'
 import TabAnimation from './TabAnimation'
 
 export default function About() {
@@ -7,7 +6,6 @@ export default function About() {
         <div className="px-6 md:px-24">
             <div className="flex flex-col-reverse md:flex-row items-center justify-between">
                 <div className="w-full md:w-4/12">
-                    {/* <img src={AboutImage} alt="AboutImage" /> */}
                     <TabAnimation />
                 </div>
                 <div className="md:w-7/12 mb-8 md:mb-0">
