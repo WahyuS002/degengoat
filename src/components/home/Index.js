@@ -1,5 +1,4 @@
 import React from 'react'
-import Hero from '../../assets/images/Hero.png'
 import { HeroImages } from '../../utils'
 
 const images = [
@@ -21,20 +20,17 @@ export default function Index() {
                         Welcome To <br /> <span className="text-primary">Degen Goat</span>
                     </h1>
                 </div>
-                {/* <div className="w-full md:w-3/5 mt-6 md:mt-0">
-                    <img className="hidden md:block" src={Hero} alt="" />
-                </div> */}
             </div>
             <div className="w-full overflow-hidden relative mt-12">
                 <div className="w-[3500px] flex animate-infinite-carousel">
                     {images.map((image) => (
-                        <div className="w-[250px]" key={image.src}>
-                            <img src={image.src} alt={image.alt} />
+                        <div className="w-[250px] mx-2" key={image.src}>
+                            <img className="rounded-xl" src={image.src} alt={image.alt} />
                         </div>
                     ))}
                     {images.map((image) => (
-                        <div className="w-[250px] h-[100px]" key={image.src}>
-                            <img src={image.src} alt={image.alt} />
+                        <div className="w-[250px] mx-2" key={image.src}>
+                            <img className="rounded-xl" src={image.src} alt={image.alt} />
                         </div>
                     ))}
                 </div>
