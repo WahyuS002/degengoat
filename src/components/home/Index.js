@@ -1,5 +1,6 @@
 import React from 'react'
 import { HeroImages } from '../../utils'
+import WelcomeImage from '../../assets/images/Welcome.png'
 
 const images = [
     { src: HeroImages.Hero1, alt: 'Hero1' },
@@ -15,13 +16,13 @@ export default function Index() {
     return (
         <div>
             <div className="px-6 md:px-24 md:flex md:items-center md:gap-24">
-                <div className="w-full text-center">
-                    <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                        Welcome To <br /> <span className="text-primary">Degen Goat</span>
-                    </h1>
+                <div className="flex justify-center mx-auto">
+                    <div className="md:w-1/2">
+                        <img src={WelcomeImage} alt="WelcomeImage.png" />
+                    </div>
                 </div>
             </div>
-            <div className="w-full overflow-hidden relative mt-12">
+            <div className="w-full overflow-hidden relative mt-16">
                 <div className="w-[3500px] flex animate-infinite-carousel">
                     {images.map((image) => (
                         <div className="w-[250px] mx-2" key={image.src}>

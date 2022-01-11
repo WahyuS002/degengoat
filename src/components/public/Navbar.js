@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import CustomLink from '../CustomLink'
 import HamburgerMenu from './HamburgerMenu'
 
@@ -47,9 +48,9 @@ export default function Navbar() {
                 </div>
             </div>
             <div className="flex md:hidden justify-between items-center w-min-full py-4">
-                <p className="uppercase font-semibold">
+                <Link to="/" className="uppercase font-semibold">
                     DegenGoat<span className="ml-[0.09rem] inline-block w-[0.4rem] h-[0.4rem] rounded-full bg-primary"></span>
-                </p>
+                </Link>
                 <HamburgerMenu />
             </div>
         </nav>
