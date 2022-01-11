@@ -1,13 +1,14 @@
 import { AboutImages } from '../ImportImages/ImportImages'
 
 export const allTabs = [
-    { icon: '🐐', label: 'Basic', src: AboutImages.Image1 },
-    { icon: '🧟‍♀️', label: 'Zombie', src: AboutImages.Image2 },
-    { icon: '🤖', label: 'Robot', src: AboutImages.Image3 },
-    { icon: '👽', label: 'Alien', src: AboutImages.Image4 },
-    { icon: '👾', label: 'Lorem', src: AboutImages.Image5 },
-    { icon: '🧠', label: 'Brain', src: AboutImages.Image6 },
-    { icon: '🥂', label: 'Champers?', src: AboutImages.Image1 },
+    { icon: '🤖', label: 'Robot', src: AboutImages.robot },
+    { icon: '🐯', label: 'Tiger', src: AboutImages.tiger },
+    { icon: '🧟‍♂️', label: 'Zombie', src: AboutImages.zombie },
+    { icon: '💛', label: 'Gold', src: AboutImages.gold },
+    { icon: '⚪', label: 'White', src: AboutImages.white },
+    { icon: '🐆', label: 'Leopard', src: AboutImages.leopard },
+    { icon: '🔥', label: 'Lava', src: AboutImages.lava },
+    { icon: '🧬', label: 'Mutant', src: AboutImages.mutant },
 ]
 
 const [tomato, lettuce, cheese, carrot, banana, blueberries] = allTabs
