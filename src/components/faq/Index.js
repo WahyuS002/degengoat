@@ -4,18 +4,28 @@ import FaqImage from '../../assets/images/FAQ.png'
 const faq = [
     {
         number: 1,
-        question: 'Why we choose algorand?',
-        answer: 'Dummy Text',
+        question: 'What Blockchain Will Degen Goat Launch?',
+        answer: 'We choose Algorand due to the low gas fee and fast transaction speed. We also want to grow the Algorand NFT by helping the artists (Degen Goat Holders only) to start their own generated NFT projects by helping to generate their art, batch minting (optional), and set up the Discord.',
     },
     {
         number: 2,
-        question: 'Who is the team behind degen goat?',
-        answer: 'Dummy Text',
+        question: 'When will we able to buy Degen Goat?',
+        answer: 'Mid January 2022',
     },
     {
         number: 3,
-        question: 'Lorem ipsum dolor?',
-        answer: 'Dummy Text',
+        question: 'How to buy Degen Goat?',
+        answer: 'Unlike other blockchains that able to minting on the website, we will do "shuffle" on our discord (Algorand NFT standard). Degen Goat can also be purchased with instant shuffle at Rand Gallery. It works like minting a dApp on another blockchain. Contact us on discord for a guide to join shuffle.',
+    },
+    {
+        number: 4,
+        question: 'How much will it cost to buy Degen Goat?',
+        answer: '25A for the first shuffle and keep increasing to 50A for the maximum price. There are no price tier and auctions for Degen Goat, all G.O.A.T Are Handsome.',
+    },
+    {
+        number: 5,
+        question: 'Where to buy the secondary?',
+        answer: `AB2 Gallery: Very Soon \n Rand Gallery: Very Soon`,
     },
 ]
 
@@ -70,7 +80,7 @@ export default function Index() {
                                         : 'max-h-0 transition-all duration-300 ease-[cubic-bezier(0,1,0,1)] overflow-hidden'
                                 }
                             >
-                                <p className="text-gray-300 mt-4 text-sm md:text-base">{item.answer}</p>
+                                <p className="text-gray-300 mt-4 text-sm md:text-base whitespace-pre-line">{item.answer}</p>
                             </div>
                         </div>
                     ))}
