@@ -115,11 +115,21 @@ function Roadmap() {
                             will go to Degen Goat Bank. There is no rarity on this edition.
                             <br />
                             <br />
-                            You can also create and sell your own derivative art, the rest of the community will help to shill your artwork!
+                            You can also create and sell your own derivative art, including selling Degen Goat Twitter banner.
                         </p>
                     </div>
                 </div>
                 <div className="mb-8 flex justify-between items-center w-full">
+                    <div className="hidden md:block w-5/12"></div>
+                    <div className="z-20">
+                        <div className="bg-semi-black w-8 h-8 rounded-full"></div>
+                    </div>
+                    <div className="bg-semi-black shadow-2xl shadow-gray-400/10 rounded-xl  w-full md:w-5/12 p-6 md:px-8 md:py-6 ml-8 md:ml-0">
+                        <h3 className="font-semibold text-base md:text-lg">Merchandise</h3>
+                        <p className="mt-3 leading-relaxed tracking-wide text-gray-500 text-sm md:text-base">We will make Degen Goat merch exclusively for our holders</p>
+                    </div>
+                </div>
+                <div className="mb-8 flex justify-between items-center w-full md:flex-row-reverse">
                     <div className="hidden md:block w-5/12"></div>
                     <div className="z-20">
                         <div className="bg-semi-black w-8 h-8 rounded-full"></div>

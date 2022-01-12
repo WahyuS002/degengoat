@@ -24,6 +24,7 @@ export const AboutImages = {
     leopard: require('../../assets/images/about/leopard.png'),
     mutant: require('../../assets/images/about/mutant.png'),
     pink: require('../../assets/images/about/pink.png'),
+    polkadot: require('../../assets/images/about/polkadot.png'),
     psychedelic: require('../../assets/images/about/psychedelic.png'),
     red: require('../../assets/images/about/red.png'),
     robot: require('../../assets/images/about/robot.png'),

@@ -6,6 +6,7 @@ export const allTabs = [
     { label: 'Brown', src: AboutImages.brown },
     { label: 'Zombie', src: AboutImages.zombie },
     { label: 'Gold', src: AboutImages.gold },
+    { label: 'Polkadot', src: AboutImages.polkadot },
     { label: 'White', src: AboutImages.white },
     { label: 'Leopard', src: AboutImages.leopard },
     { label: 'Tribal', src: AboutImages.tribal },
@@ -17,8 +18,8 @@ export const allTabs = [
     { label: 'Pink', src: AboutImages.pink },
 ]
 
-const [robot, tiger, brown, zombie, gold, white, leopard, tribal, red, lava, blue, mutant, psychedelic, pink] = allTabs
-export const initialTabs = [robot, tiger, brown, zombie, gold, white, leopard, tribal, red, lava, blue, mutant, psychedelic, pink]
+const [robot, tiger, brown, zombie, gold, polkadot, white, leopard, tribal, red, lava, blue, mutant, psychedelic, pink] = allTabs
+export const initialTabs = [robot, tiger, brown, zombie, gold, polkadot, white, leopard, tribal, red, lava, blue, mutant, psychedelic, pink]
 
 export function getNextTab(tabs) {
     const existing = new Set(tabs)
