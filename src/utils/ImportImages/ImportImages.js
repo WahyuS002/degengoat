@@ -14,6 +14,7 @@ export const TeamImages = {
     Team3: require('../../assets/images/teams/3.png'),
     Team4: require('../../assets/images/teams/4.png'),
     Team5: require('../../assets/images/teams/5.png'),
+    Team6: require('../../assets/images/teams/6.png'),
 }
 
 export const AboutImages = {
