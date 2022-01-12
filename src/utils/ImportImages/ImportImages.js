@@ -17,12 +17,18 @@ export const TeamImages = {
 }
 
 export const AboutImages = {
+    blue: require('../../assets/images/about/blue.png'),
+    brown: require('../../assets/images/about/brown.png'),
     gold: require('../../assets/images/about/gold.png'),
     lava: require('../../assets/images/about/lava.png'),
     leopard: require('../../assets/images/about/leopard.png'),
     mutant: require('../../assets/images/about/mutant.png'),
+    pink: require('../../assets/images/about/pink.png'),
+    psychedelic: require('../../assets/images/about/psychedelic.png'),
+    red: require('../../assets/images/about/red.png'),
     robot: require('../../assets/images/about/robot.png'),
     tiger: require('../../assets/images/about/tiger.png'),
+    tribal: require('../../assets/images/about/tribal.png'),
     white: require('../../assets/images/about/white.png'),
     zombie: require('../../assets/images/about/zombie.png'),
 }

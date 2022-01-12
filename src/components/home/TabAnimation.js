@@ -17,11 +17,11 @@ export default function TabAnimation() {
                     {tabs.map((item) => (
                         <li
                             key={item.label}
-                            className={'text-center rounded-md px-4 cursor-pointer' + (item === selectedTab ? ' text-white font-semibold bg-semi-black' : ' text-gray-300')}
+                            className={'text-center rounded-md p-4 cursor-pointer' + (item === selectedTab ? ' text-white font-semibold bg-semi-black' : ' text-gray-300')}
                             onClick={() => setSelectedTab(item)}
                         >
                             <div className="flex flex-col relative">
-                                <span className="text-lg">{item.icon}</span>
+                                {/* <span className="text-lg">{item.icon}</span> */}
                                 <span className="text-sm">
                                     {item.label}
                                     {item === selectedTab ? <motion.div className="absolute -bottom-[5px] left-0 right-0 h-[2px] bg-primary" layoutId="underline" /> : null}
