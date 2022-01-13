@@ -23,13 +23,13 @@ const teams = [
     },
     {
         name: 'Algonaut',
-        position: 'Marketing, Merch, Degen King',
+        position: 'Marketing, Merch & Degen King',
         pfp: TeamImages.Algonaut,
         label: 'Core Team',
     },
     {
         name: 'Dave',
-        position: 'Secret Agent',
+        position: 'Advisor',
         pfp: TeamImages.Dave,
         label: 'Additional Team',
     },
