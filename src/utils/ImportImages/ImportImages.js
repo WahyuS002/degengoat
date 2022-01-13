@@ -9,12 +9,12 @@ export const HeroImages = {
 }
 
 export const TeamImages = {
-    Team1: require('../../assets/images/teams/1.png'),
-    Team2: require('../../assets/images/teams/2.png'),
-    Team3: require('../../assets/images/teams/3.png'),
-    Team4: require('../../assets/images/teams/4.png'),
-    Team5: require('../../assets/images/teams/5.png'),
-    Team6: require('../../assets/images/teams/6.png'),
+    DegenScientist: require('../../assets/images/teams/degen scientist.png'),
+    Termoses: require('../../assets/images/teams/termoses.png'),
+    Wahyu: require('../../assets/images/teams/wahyu.png'),
+    Algonaut: require('../../assets/images/teams/algonaut.png'),
+    Meri: require('../../assets/images/teams/meri.png'),
+    Dave: require('../../assets/images/teams/dave.png'),
 }
 
 export const AboutImages = {

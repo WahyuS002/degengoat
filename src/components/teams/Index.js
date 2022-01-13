@@ -6,37 +6,37 @@ const teams = [
     {
         name: 'Degen Scientist',
         position: 'Founder & Artist',
-        pfp: TeamImages.Team1,
+        pfp: TeamImages.DegenScientist,
         label: 'Core Team',
     },
     {
         name: 'TermosEs',
         position: 'Coder',
-        pfp: TeamImages.Team2,
+        pfp: TeamImages.Termoses,
         label: 'Core Team',
     },
     {
         name: 'Wahyu',
         position: 'Web 3 savy',
-        pfp: TeamImages.Team3,
+        pfp: TeamImages.Wahyu,
         label: 'Core Team',
     },
     {
         name: 'Algonaut',
         position: 'Marketing, Merch, Degen King',
-        pfp: TeamImages.Team4,
+        pfp: TeamImages.Algonaut,
         label: 'Core Team',
     },
     {
         name: 'Dave',
         position: 'Secret Agent',
-        pfp: TeamImages.Team5,
+        pfp: TeamImages.Dave,
         label: 'Additional Team',
     },
     {
         name: 'Edgmeri',
         position: 'Marketing & Merch',
-        pfp: TeamImages.Team6,
+        pfp: TeamImages.Meri,
     },
 ]
 
