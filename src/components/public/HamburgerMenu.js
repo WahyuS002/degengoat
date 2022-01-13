@@ -35,8 +35,8 @@ export default function HamburgerMenu() {
                                 </Link>
                             </Menu.Item>
                             <Menu.Item>
-                                <Link to="/teams" className="font-medium text-gray-900 group flex rounded-md items-center w-full px-2 py-2 text-sm">
-                                    Teams
+                                <Link to="/team" className="font-medium text-gray-900 group flex rounded-md items-center w-full px-2 py-2 text-sm">
+                                    Team
                                 </Link>
                             </Menu.Item>
                         </div>
