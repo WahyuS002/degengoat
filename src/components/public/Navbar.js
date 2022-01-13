@@ -18,8 +18,8 @@ export default function Navbar() {
                             <CustomLink to="/faq" className="py-2 px-5 rounded-lg">
                                 FAQ
                             </CustomLink>
-                            <CustomLink to="/teams" className="py-2 px-5 rounded-lg">
-                                Teams
+                            <CustomLink to="/team" className="py-2 px-5 rounded-lg">
+                                Team
                             </CustomLink>
                         </div>
                     </div>
