@@ -11,13 +11,13 @@ const teams = [
     },
     {
         name: 'TermosEs',
-        position: 'Coder',
+        position: 'Tech Savvy',
         pfp: TeamImages.Termoses,
         label: 'Core Team',
     },
     {
         name: 'Wahyu',
-        position: 'Web 3 savy',
+        position: 'Web 3 Savvy',
         pfp: TeamImages.Wahyu,
         label: 'Core Team',
     },
