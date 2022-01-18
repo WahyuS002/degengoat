@@ -7,7 +7,7 @@ export default function JoinUs() {
                 <h3 className="text-3xl md:text-5xl text-center font-bold leading-snug">
                     Join Us <br /> On Discord
                 </h3>
-                <a href="https://discord.gg/XVkSZBdp" target="_blank" className="flex justify-center mt-8" rel="noreferrer">
+                <a href="https://discord.gg/b9wn7da2c3" target="_blank" className="flex justify-center mt-8" rel="noreferrer">
                     <svg
                         width="71"
                         height="55"
