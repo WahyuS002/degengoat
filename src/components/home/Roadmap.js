@@ -111,7 +111,7 @@ function Roadmap() {
                             will go to Degen Goat Bank. There is no rarity on this edition.
                             <br />
                             <br />
-                            You can also create and sell your own derivative art, including selling Degen Goat Twitter banner.
+                            You can also create and sell your own art, including selling Degen Goat Twitter banner.
                         </p>
                     </div>
                 </div>
