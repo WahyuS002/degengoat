@@ -7,6 +7,7 @@ import Benefit from '../components/home/Benefit'
 
 import Navbar from '../components/public/Navbar'
 import Footer from '../components/public/Footer'
+import BottomNotification from '../components/public/BottomNotification'
 
 export default function Home() {
     return (
@@ -30,6 +31,7 @@ export default function Home() {
             <div className="mt-12 md:mt-44">
                 <Footer />
             </div>
+            <BottomNotification />
         </div>
     )
 }
