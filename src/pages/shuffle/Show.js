@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Footer from '../../components/public/Footer'
 import Countdown from '../../components/public/Countdown'
 import { Link } from 'react-router-dom'
 import ShuffleModal from '../../components/shuffle/ShuffleModal'
@@ -55,15 +54,16 @@ export default function Shuffle() {
                         >
                             Join Shuffle
                         </button>
-                        {/* <button className="px-12 py-4 rounded-lg font-semibold text-lg text-semi-black bg-white hover:bg-primary transition duration-300 ease-in-out">You're Joined</button> */}
+                        {/* <button className="px-12 py-4 rounded-lg font-semibold text-lg text-semi-black bg-primary hover:bg-green-400 transition duration-300 ease-in-out">You're Joined</button> */}
                     </div>
                     <div className="flex justify-center items-center space-x-3 mt-8">
                         <span className="w-3 h-3 rounded-full bg-red-600 block animate-blink"></span>
                         <Countdown />
                     </div>
-                    <div className="text-center mt-2 text-primary">VXUASDS..... is #121 Participant of this Shuffle</div>
                 </div>
             </div>
+            <div className="text-center mt-6 text-primary">VRKPDKT4M4QZWOIPZDUUBEFRUWDXED7AUCRR3POY33BD5PFYR4KC5P3AXU</div>
+            <div className="text-center mt-2 text-primary">You're joined the shuffle</div>
         </div>
     )
 }
