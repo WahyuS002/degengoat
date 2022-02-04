@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { connect } from '../../redux/blockchain/blockchainActions'
+import { connect, checkJoinedAddress } from '../../redux/blockchain/blockchainActions'
 import ThreeDotsWave from '../public/ThreeDotsWave'
 import MyAlgoWalletLogo from '../../assets/myaglo-logo.png'
 import { Truncate as truncate } from '../../utils'
@@ -32,6 +32,7 @@ export default function ShuffleModal({ openModalParent, handleClose, shuffleId }
             .then((resp) => {
                 console.log(resp)
                 toast.success('You are joined the shuffled 🥳')
+                dispatch(checkJoinedAddress(shuffleId, blockchain.walletAddress))
             })
             .catch((err) => {
                 console.log(err)

@@ -40,3 +40,20 @@ export const connect = (shuffle_id) => {
         }
     }
 }
+
+export const checkJoinedAddress = (shuffle_id, address) => {
+    return async (dispatch) => {
+        dispatch(connectRequest())
+        try {
+            const joinedStatus = await axios.get(`${process.env.REACT_APP_API_URL}/check-joined-address/${shuffle_id}/${address}`)
+            dispatch(
+                connectSuccess({
+                    walletAddress: address,
+                    joinedStatus: joinedStatus.data,
+                })
+            )
+        } catch (err) {
+            dispatch(connectFailed('Something went wrong!'))
+        }
+    }
+}
