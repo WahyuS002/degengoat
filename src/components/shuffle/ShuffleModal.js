@@ -68,17 +68,22 @@ export default function ShuffleModal({ openModalParent, handleClose, shuffleId }
                                 </button>
                             </div>
                             {!blockchain.walletAddress && (
-                                <div className="flex justify-center mt-8">
-                                    <button
-                                        className="flex items-center space-x-3 bg-[#0f1a2c] hover:bg-[#1b2f4e] transition duration-300 ease-in-out px-6 py-3 rounded-xl w-full"
-                                        onClick={(e) => {
-                                            e.preventDefault()
-                                            dispatch(connect(shuffleId))
-                                        }}
-                                    >
-                                        <img className="w-8 h-8 rounded-full self-center" src={MyAlgoWalletLogo} alt="" />
-                                        <span className="text-gray-200 text-sm font-semibold">Connect to My Algo Wallet</span>
-                                    </button>
+                                <div className="my-8">
+                                    <div className="flex justify-center">
+                                        <button
+                                            className="flex items-center space-x-3 bg-[#0f1a2c] hover:bg-[#1b2f4e] transition duration-300 ease-in-out px-6 py-3 rounded-xl w-full"
+                                            onClick={(e) => {
+                                                e.preventDefault()
+                                                dispatch(connect(shuffleId))
+                                            }}
+                                        >
+                                            <img className="w-8 h-8 rounded-full self-center" src={MyAlgoWalletLogo} alt="" />
+                                            <span className="text-gray-200 text-sm font-semibold">Connect to My Algo Wallet</span>
+                                        </button>
+                                    </div>
+                                    <p className="text-xs text-center mt-6 text-gray-600">
+                                        By connecting your wallet to Degen Goat you're agree with our <span className="font-semibold underline">Terms and Conditions</span>
+                                    </p>
                                 </div>
                             )}
 

@@ -53,7 +53,7 @@ export default function Shuffle() {
 
     return (
         <div>
-            {shuffle ? (
+            {shuffle && shuffle.status !== 'draf' ? (
                 <div>
                     <ShuffleModal openModalParent={openModal} handleClose={hideModal} shuffleId={shuffle.id} />
                     <ToastContainer />
@@ -102,10 +102,7 @@ export default function Shuffle() {
                                     <span className="text-sm text-gray-500 font-semibold">{shuffle.total_winners_amount} Total of Winners</span>
                                 </div>
                             </div>
-                            <div className="flex justify-center mt-6">
-                                {joinShuffleButton(shuffle)}
-                                {/* <button className="px-12 py-4 rounded-lg font-semibold text-lg text-semi-black bg-primary hover:bg-green-400 transition duration-300 ease-in-out">You're Joined</button> */}
-                            </div>
+                            <div className="flex justify-center mt-6">{joinShuffleButton(shuffle)}</div>
                             <div className="flex justify-center mt-8">
                                 <Countdown started_at={shuffle.started_at} ended_at={shuffle.ended_at} />
                             </div>

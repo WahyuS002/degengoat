@@ -83,11 +83,17 @@ export default function Index() {
                                                     <span className="text-xs text-gray-500">Total Winners</span>
                                                 </div>
                                             </div>
-                                            <Link to={`/shuffle/${shuffle.slug}`}>
-                                                <button className="bg-primary hover:bg-green-400 transition-all duration-300 ease-in-out text-semi-black uppercase font-semibold px-4 py-1 rounded-lg hover:scale-105">
-                                                    join
-                                                </button>
-                                            </Link>
+                                            {shuffle.status === 'opened' ? (
+                                                <Link to={`/shuffle/${shuffle.slug}`}>
+                                                    <button className="bg-primary hover:bg-green-400 transition-all duration-300 ease-in-out text-semi-black uppercase font-semibold px-4 py-1 rounded-lg hover:scale-105">
+                                                        join
+                                                    </button>
+                                                </Link>
+                                            ) : shuffle.status === 'draf' ? (
+                                                <button className="bg-gray-400 text-semi-black uppercase font-semibold px-4 py-1 rounded-lg cursor-not-allowed">join</button>
+                                            ) : (
+                                                <button className="bg-gray-400 text-semi-black uppercase font-semibold px-4 py-1 rounded-lg cursor-not-allowed">ended</button>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
