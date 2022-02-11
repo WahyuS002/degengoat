@@ -5,7 +5,9 @@ import ShuffleModal from '../../components/shuffle/ShuffleModal'
 import AlgorandLogo from '../../assets/images/algorand_logo.png'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
-import { ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
+import moment from 'moment-timezone'
+import ConnectWallet from '../../components/public/ConnectWallet'
 
 export default function Shuffle() {
     let { slug } = useParams()
@@ -14,23 +16,30 @@ export default function Shuffle() {
 
     const blockchain = useSelector((state) => state.blockchain)
 
-    const hideModal = () => {
-        setOpenModal(false)
-    }
+    const notify = () => toast.warning('Please connect your wallet first!')
 
     const joinShuffleButton = (shuffle) => {
-        if (+new Date() < +new Date(shuffle.started_at)) {
+        const currentTime = Date.parse(moment.tz('America/New_York').toDate())
+        if (currentTime < +new Date(shuffle.started_at)) {
             return (
                 <button className="px-12 py-4 rounded-lg font-semibold text-lg text-semi-black bg-gray-400 cursor-not-allowed" disabled>
                     Join Shuffle
                 </button>
             )
-        } else if (+new Date() > +new Date(shuffle.started_at) && +new Date() < +new Date(shuffle.ended_at)) {
-            return (
-                <button className="px-12 py-4 rounded-lg font-semibold text-lg text-semi-black bg-white hover:bg-primary transition duration-300 ease-in-out" onClick={() => setOpenModal(true)}>
-                    Join Shuffle
-                </button>
-            )
+        } else if (currentTime > +new Date(shuffle.started_at) && currentTime < +new Date(shuffle.ended_at)) {
+            if (blockchain.walletAddress) {
+                return (
+                    <button className="px-12 py-4 rounded-lg font-semibold text-lg text-semi-black bg-white hover:bg-primary transition duration-300 ease-in-out" onClick={() => setOpenModal(true)}>
+                        Join Shuffle
+                    </button>
+                )
+            } else {
+                return (
+                    <button className="px-12 py-4 rounded-lg font-semibold text-lg text-semi-black bg-white hover:bg-primary transition duration-300 ease-in-out" onClick={notify}>
+                        Join Shuffle
+                    </button>
+                )
+            }
         } else {
             return (
                 <button className="px-12 py-4 rounded-lg font-semibold text-lg text-semi-black bg-gray-400 cursor-not-allowed" disabled>
@@ -55,21 +64,13 @@ export default function Shuffle() {
         <div>
             {shuffle && shuffle.status !== 'draf' ? (
                 <div>
-                    <ShuffleModal openModalParent={openModal} handleClose={hideModal} shuffleId={shuffle.id} />
+                    <ShuffleModal openModal={openModal} handleClose={() => setOpenModal(false)} shuffleId={shuffle.id} />
                     <ToastContainer />
                     <nav className="flex items-center justify-between py-12 px-24">
-                        <Link className="text-lg font-semibold flex items-center gap-3 hover:text-primary duration-300 ease-in-out" to="/shuffle">
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z"
-                                        clipRule="evenodd"
-                                    />
-                                </svg>
-                            </span>
-                            <span className="text-sm md:text-base">Back</span>
+                        <Link to="/" className="uppercase font-semibold">
+                            DegenGoat<span className="ml-[0.09rem] inline-block w-[0.4rem] h-[0.4rem] rounded-full bg-primary"></span>
                         </Link>
+                        <ConnectWallet />
                     </nav>
                     <div className="flex justify-center mt-20">
                         <div className="max-w-md">

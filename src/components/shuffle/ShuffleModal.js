@@ -7,10 +7,9 @@ import { Truncate as truncate } from '../../utils'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { useEffect } from 'react'
 
-export default function ShuffleModal({ openModalParent, handleClose, shuffleId }) {
-    const showOrHideModal = openModalParent ? 'block' : 'hidden'
-
+export default function ShuffleModal({ openModal, handleClose, shuffleId }) {
     const dispatch = useDispatch()
     const blockchain = useSelector((state) => state.blockchain)
 
@@ -40,8 +39,12 @@ export default function ShuffleModal({ openModalParent, handleClose, shuffleId }
             })
     }
 
+    useEffect(() => {}, [])
+
+    if (!openModal) return null
+
     return (
-        <div className={showOrHideModal}>
+        <div>
             <div className="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
                 <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
                     <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
