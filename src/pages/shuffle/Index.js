@@ -6,7 +6,7 @@ export default function Shuffle() {
     return (
         <div>
             <Navbar />
-            <div className="mt-20 mb-20">
+            <div className="mb-40">
                 <Index />
             </div>
             <Footer />

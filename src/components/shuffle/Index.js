@@ -19,14 +19,18 @@ export default function Index() {
     }, [])
 
     return (
-        <div>
+        <div className="h-screen py-32">
             <div className="flex justify-center">
-                <div className="max-w-lg">
-                    <h1 className="text-3xl md:text-5xl font-semibold text-center">Degen Goat Shuffle</h1>
-                    <p className="text-center mt-4 text-gray-500 font-semibold">We will announce the shuffle schedule, don't miss it! 50A is the maximum mint price.</p>
+                <div className="max-w-screen-md">
+                    <div>
+                        <h1 className="text-3xl md:text-5xl font-semibold text-center">Degen Goat Shuffle</h1>
+                    </div>
+                    <div className="max-w-md mx-auto mt-6">
+                        <p className="text-center text-gray-500 ">We will announce the shuffle schedule, don't miss it! 50A is the maximum mint price.</p>
+                    </div>
                 </div>
             </div>
-            <div className="flex justify-center mt-4">
+            <div className="flex justify-center mt-6">
                 <a href="https://discord.gg/b9wn7da2c3" target={'_blank'} rel="noreferrer">
                     <button className="bg-primary hover:bg-green-400 hover:text-white transition-all duration-300 ease-in-out flex items-center px-8 py-3 rounded-lg hover:animate-grow hover:scale-105 group">
                         <span className="group-hover:animate-wiggle">

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import moment from 'moment-timezone'
 
 function calculateTimeLeft(started_at, ended_at) {
-    if (+new Date() < +new Date(started_at)) {
+    const currentTime = Date.parse(moment.tz('America/New_York').toDate())
+    if (currentTime < +new Date(started_at)) {
         // jika waktu sekarang kurang dari started_at artinya shuffle AKAN DIMULAI pada
-        const difference = +new Date(started_at) - +new Date()
+        const difference = +new Date(started_at) - currentTime
         let timeLeft = {}
 
         if (difference > 0) {
@@ -18,7 +20,7 @@ function calculateTimeLeft(started_at, ended_at) {
         return timeLeft
     } else {
         // jika waktu sekarang lebih dari started_at artinya shuffle AKAN SELESAI pada
-        const difference = +new Date(ended_at) - +new Date()
+        const difference = +new Date(ended_at) - currentTime
         let timeLeft = {}
 
         if (difference > 0) {
@@ -35,13 +37,14 @@ function calculateTimeLeft(started_at, ended_at) {
 }
 
 export default function Countdown({ started_at, ended_at }) {
+    const currentTime = Date.parse(moment.tz('America/New_York').toDate())
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(started_at, ended_at))
     const [feedback, setFeedback] = useState(null)
 
     const feedbackMessage = () => {
-        if (+new Date() < +new Date(started_at)) {
+        if (currentTime < +new Date(started_at)) {
             setFeedback('Shuffle started in')
-        } else if (+new Date() > +new Date(started_at) && +new Date() < +new Date(ended_at)) {
+        } else if (currentTime > +new Date(started_at) && currentTime < +new Date(ended_at)) {
             setFeedback('Shuffle ended in')
         }
     }
@@ -65,11 +68,13 @@ export default function Countdown({ started_at, ended_at }) {
             <div key={interval}>
                 {feedback === 'Shuffle started in' ? (
                     <span className="text-primary" key={interval}>
-                        {timeLeft[interval]} {interval}{' '}
+                        {timeLeft[interval]} {interval}
+                        <span>&nbsp;</span>
                     </span>
                 ) : (
                     <span className="text-red-500" key={interval}>
-                        {timeLeft[interval]} {interval}{' '}
+                        {timeLeft[interval]} {interval}
+                        <span>&nbsp;</span>
                     </span>
                 )}
             </div>

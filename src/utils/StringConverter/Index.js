@@ -3,10 +3,8 @@ export const Truncate = (fullStr, strLen, separator) => {
 
     separator = separator || '...'
 
-    var sepLen = separator.length,
-        charsToShow = strLen - sepLen,
-        frontChars = Math.ceil(charsToShow / 2),
-        backChars = Math.floor(charsToShow / 2)
+    var frontChars = 5,
+        backChars = 4
 
     return fullStr.substr(0, frontChars) + separator + fullStr.substr(fullStr.length - backChars)
 }
