@@ -28,9 +28,11 @@ export const connect = () => {
         try {
             const accounts = await myAlgoWallet.connect()
             const addresses = accounts.map((account) => account.address)
+            const registeredStatus = await axios.get(`${process.env.REACT_APP_API_URL}/participant/checkRegistered/${addresses[0]}`)
             dispatch(
                 connectSuccess({
                     walletAddress: addresses[0],
+                    registeredStatus: registeredStatus.data,
                 })
             )
         } catch (err) {
@@ -39,15 +41,36 @@ export const connect = () => {
     }
 }
 
-export const checkJoinedAddress = (shuffle_id, address) => {
+export const refreshWalletRegisteredStatus = (wallet_address) => {
     return async (dispatch) => {
         dispatch(connectRequest())
         try {
-            const joinedStatus = await axios.get(`${process.env.REACT_APP_API_URL}/check-joined-address/${shuffle_id}/${address}`)
+            const registeredStatus = await axios.get(`${process.env.REACT_APP_API_URL}/participant/checkRegistered/${wallet_address}`)
             dispatch(
                 connectSuccess({
-                    walletAddress: address,
+                    registeredStatus: registeredStatus.data,
+                })
+            )
+        } catch (err) {
+            dispatch(connectFailed('Something went wrong!'))
+        }
+    }
+}
+
+export const checkJoinedAddress = (wallet_address, shuffle_slug = null) => {
+    return async (dispatch) => {
+        dispatch(connectRequest())
+        try {
+            const joinedStatus = await axios.get(`${process.env.REACT_APP_API_URL}/participant/shuffle/joinedStatus/${wallet_address}/${shuffle_slug}`)
+            const registeredStatus = await axios.get(`${process.env.REACT_APP_API_URL}/participant/checkRegistered/${wallet_address}`)
+            const participant = await axios.get(`${process.env.REACT_APP_API_URL}/participant/shuffle/${wallet_address}/${shuffle_slug}`)
+            console.log('this participant is :', participant)
+            dispatch(
+                connectSuccess({
+                    walletAddress: wallet_address,
+                    registeredStatus: registeredStatus.data,
                     joinedStatus: joinedStatus.data,
+                    participantPosition: participant.data.data.position,
                 })
             )
         } catch (err) {

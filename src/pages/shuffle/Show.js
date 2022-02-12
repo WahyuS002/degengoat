@@ -3,20 +3,39 @@ import Countdown from '../../components/public/Countdown'
 import { Link, useParams } from 'react-router-dom'
 import ShuffleModal from '../../components/shuffle/ShuffleModal'
 import AlgorandLogo from '../../assets/images/algorand_logo.png'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
 import moment from 'moment-timezone'
 import ConnectWallet from '../../components/public/ConnectWallet'
+import { checkJoinedAddress } from '../../redux/blockchain/blockchainActions'
 
 export default function Shuffle() {
     let { slug } = useParams()
+    const dispatch = useDispatch()
     const [openModal, setOpenModal] = useState(false)
     const [shuffle, setShuffle] = useState(null)
+    const [loading, setLoading] = useState(false)
 
     const blockchain = useSelector((state) => state.blockchain)
+    console.log(blockchain)
 
     const notify = () => toast.warning('Please connect your wallet first!')
+
+    const joinShuffle = async (shuffleId, shuffleSlug) => {
+        let url = `${process.env.REACT_APP_API_URL}/participant/shuffle`
+        setLoading(true)
+        await axios
+            .post(url, { wallet_address: blockchain.walletAddress, shuffle_id: shuffleId })
+            .then(() => {
+                toast.success('You are joined the shuffled 🥳')
+                dispatch(checkJoinedAddress(blockchain.walletAddress, shuffleSlug))
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        setLoading(false)
+    }
 
     const joinShuffleButton = (shuffle) => {
         const currentTime = Date.parse(moment.tz('America/New_York').toDate())
@@ -29,9 +48,31 @@ export default function Shuffle() {
         } else if (currentTime > +new Date(shuffle.started_at) && currentTime < +new Date(shuffle.ended_at)) {
             if (blockchain.walletAddress) {
                 return (
-                    <button className="px-12 py-4 rounded-lg font-semibold text-lg text-semi-black bg-white hover:bg-primary transition duration-300 ease-in-out" onClick={() => setOpenModal(true)}>
-                        Join Shuffle
-                    </button>
+                    <>
+                        {loading ? (
+                            <button className="px-12 py-4 rounded-lg font-semibold text-lg text-semi-black bg-gray-400 cursor-not-allowed">Loading . . .</button>
+                        ) : (
+                            <>
+                                {blockchain.joinedStatus ? (
+                                    <div>
+                                        <div className="flex justify-center">
+                                            <button className="px-12 py-4 rounded-lg font-semibold text-lg text-semi-black bg-primary ">You're Joined</button>
+                                        </div>
+                                        <p className="text-center mt-6 text-gray-200">
+                                            You're <span className="text-primary font-bold">#{blockchain.participantPosition}</span> participant in this shuffle.
+                                        </p>
+                                    </div>
+                                ) : (
+                                    <button
+                                        className="px-12 py-4 rounded-lg font-semibold text-lg text-semi-black bg-white hover:bg-primary transition duration-300 ease-in-out"
+                                        onClick={() => joinShuffle(shuffle.id, shuffle.slug)}
+                                    >
+                                        Join Shuffle
+                                    </button>
+                                )}
+                            </>
+                        )}
+                    </>
                 )
             } else {
                 return (
@@ -64,7 +105,7 @@ export default function Shuffle() {
         <div>
             {shuffle && shuffle.status !== 'draf' ? (
                 <div>
-                    <ShuffleModal openModal={openModal} handleClose={() => setOpenModal(false)} shuffleId={shuffle.id} />
+                    <ShuffleModal openModal={openModal} handleClose={() => setOpenModal(false)} shuffleSlug={shuffle.slug} />
                     <ToastContainer />
                     <nav className="flex items-center justify-between py-12 px-24">
                         <Link to="/" className="uppercase font-semibold">
@@ -103,6 +144,7 @@ export default function Shuffle() {
                                     <span className="text-sm text-gray-500 font-semibold">{shuffle.total_winners_amount} Total of Winners</span>
                                 </div>
                             </div>
+
                             <div className="flex justify-center mt-6">{joinShuffleButton(shuffle)}</div>
                             <div className="flex justify-center mt-8">
                                 <Countdown started_at={shuffle.started_at} ended_at={shuffle.ended_at} />

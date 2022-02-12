@@ -1,30 +1,42 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { connect, checkJoinedAddress } from '../../redux/blockchain/blockchainActions'
-import ThreeDotsWave from '../public/ThreeDotsWave'
-import MyAlgoWalletLogo from '../../assets/myalgo-logo.png'
 import { Truncate as truncate } from '../../utils'
+import { connect, checkJoinedAddress } from '../../redux/blockchain/blockchainActions'
+import MyAlgoWalletLogo from '../../assets/myalgo-logo.png'
+import ThreeDotsWave from './ThreeDotsWave'
 import axios from 'axios'
 import { toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import { useEffect } from 'react'
 
-export default function ShuffleModal({ openModal, handleClose, shuffleSlug }) {
+export default function RegisterModal({ openModal, handleClose }) {
     const dispatch = useDispatch()
     const blockchain = useSelector((state) => state.blockchain)
 
-    const handleOnSubmit = async (e) => {
+    const [participant, setParticipant] = useState({
+        wallet_address: null,
+        discord_username: '',
+        twitter_username: '',
+    })
+
+    const handleOnChange = (e) => {
+        setParticipant({ ...participant, [e.target.name]: e.target.value, wallet_address: blockchain.walletAddress })
+    }
+
+    const onHandleSubmit = async (e) => {
         e.preventDefault()
         axios
-            .post(`${process.env.REACT_APP_API_URL}/shuffle-participants`, { wallet_address: blockchain.walletAddress })
-            .then((resp) => {
-                console.log(resp)
-                toast.success('You are joined the shuffled 🥳')
-                dispatch(checkJoinedAddress(blockchain.walletAddress, shuffleSlug))
+            .post(`${process.env.REACT_APP_API_URL}/participant`, participant)
+            .then(() => {
+                dispatch(checkJoinedAddress(blockchain.walletAddress))
+                toast.success('Your wallet address has been registered.')
             })
-            .catch((err) => {
-                console.log(err)
-                toast.error('Something went wrong!')
+            .catch((error) => {
+                switch (error.response.status) {
+                    case 403:
+                        toast.error("You're already registered account with this device.")
+                        break
+                    default:
+                        break
+                }
             })
     }
 
@@ -42,7 +54,11 @@ export default function ShuffleModal({ openModal, handleClose, shuffleSlug }) {
                     <div className="inline-block align-bottom bg-white border-2 border-gray-400 rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full">
                         <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 text-gray-800">
                             <div className="flex items-center justify-between">
-                                <span className="text-center font-semibold grow pl-[40px]">Join The Shuffle</span>
+                                {blockchain.walletAddress && !blockchain.registeredStatus ? (
+                                    <span className="text-center font-semibold grow pl-[40px]">Registration Form</span>
+                                ) : (
+                                    <span className="text-center font-semibold grow pl-[40px]">Connect Your Wallet</span>
+                                )}
                                 <button className="rounded-full border-[1.5px] border-gray-200 p-2 hover:bg-gray-100 transition duration-300 ease-in-out group" onClick={handleClose}>
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-800 group-hover:animate-wiggle" viewBox="0 0 20 20" fill="currentColor">
                                         <path
@@ -53,34 +69,44 @@ export default function ShuffleModal({ openModal, handleClose, shuffleSlug }) {
                                     </svg>
                                 </button>
                             </div>
-                            <div className="mt-4">
-                                <div className="flex justify-center">
-                                    <div className="inline-block py-1 border border-gray-300 bg-gray-200 rounded-full px-6">
-                                        <span className="text-sm">{truncate(blockchain.walletAddress, 20)}</span>
+
+                            {blockchain.walletAddress ? (
+                                <div className="mt-3">
+                                    <div className="flex justify-center">
+                                        <div className="bg-gray-200 inline-block px-3 py-1 rounded-full text-sm mx-auto">
+                                            <div className="">{truncate(blockchain.walletAddress)}</div>
+                                        </div>
                                     </div>
+                                    {!blockchain.registeredStatus && (
+                                        <p className="text-xs text-gray-400 text-center mt-1">
+                                            <span className="text-red-500">*</span> Please fill the form below to register your wallet
+                                        </p>
+                                    )}
                                 </div>
-                                {blockchain.joinedStatus ? (
-                                    <div className="flex items-center justify-center mt-2">
-                                        <span className="w-2 h-2 rounded-full bg-green-400 mr-1"></span>
-                                        <span className="text-xs text-gray-400 font-medium">Joined</span>
-                                    </div>
-                                ) : (
-                                    <div className="flex items-center justify-center mt-2">
-                                        <span className="w-2 h-2 rounded-full bg-red-400 mr-1"></span>
-                                        <span className="text-xs text-gray-400 font-medium">Not Joined</span>
-                                    </div>
-                                )}
-                            </div>
+                            ) : (
+                                <div className="flex justify-center mt-8">
+                                    <button
+                                        className="flex items-center space-x-3 bg-[#0f1a2c] hover:bg-[#1b2f4e] transition duration-300 ease-in-out px-6 py-3 rounded-xl w-full"
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                            dispatch(connect())
+                                        }}
+                                    >
+                                        <img className="w-8 h-8 rounded-full self-center" src={MyAlgoWalletLogo} alt="" />
+                                        <span className="text-gray-200 text-sm font-semibold">Connect to My Algo Wallet</span>
+                                    </button>
+                                </div>
+                            )}
+
                             {blockchain.loading && (
                                 <div>
                                     <div className="flex justify-center mt-4">
                                         <ThreeDotsWave />
                                     </div>
-                                    <p className="text-center text-sm">Please Wait...</p>
                                 </div>
                             )}
-                            {blockchain.walletAddress && !blockchain.joinedStatus && (
-                                <form onSubmit={handleOnSubmit}>
+                            {blockchain.walletAddress && (
+                                <form onSubmit={onHandleSubmit}>
                                     <div className="mt-8">
                                         <div className="grid grid-rows-2 gap-6">
                                             <div>
@@ -98,11 +124,13 @@ export default function ShuffleModal({ openModal, handleClose, shuffleSlug }) {
                                                     </div>
                                                     <input
                                                         type="text"
-                                                        name="discord"
                                                         id="discord"
-                                                        className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm  border border-gray-300 rounded-md py-3 cursor-not-allowed bg-gray-200"
+                                                        className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm  border border-gray-300 rounded-md py-3"
                                                         placeholder="Username"
-                                                        disabled
+                                                        name="discord_username"
+                                                        value={participant.discord_username}
+                                                        onChange={handleOnChange}
+                                                        required
                                                     />
                                                 </div>
                                             </div>
@@ -121,37 +149,28 @@ export default function ShuffleModal({ openModal, handleClose, shuffleSlug }) {
                                                     </div>
                                                     <input
                                                         type="text"
-                                                        name="twitter"
                                                         id="twitter"
-                                                        className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm  border border-gray-300 rounded-md py-3 cursor-not-allowed bg-gray-200"
+                                                        className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm  border border-gray-300 rounded-md py-3"
                                                         placeholder="Username"
-                                                        disabled
+                                                        name="twitter_username"
+                                                        value={participant.twitter_username}
+                                                        onChange={handleOnChange}
+                                                        required
                                                     />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse justify-center mt-4">
-                                        {blockchain.walletAddress ? (
-                                            <button
-                                                type="submit"
-                                                className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm"
-                                            >
-                                                Join Shuffle
-                                            </button>
-                                        ) : (
-                                            <button
-                                                type="button"
-                                                className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-gray-400 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm cursor-not-allowed"
-                                                disabled
-                                            >
-                                                Join Shuffle
-                                            </button>
-                                        )}
+                                        <button
+                                            type="submit"
+                                            className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm"
+                                        >
+                                            Register
+                                        </button>
                                         <button
                                             type="button"
                                             className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                                            onClick={handleClose}
                                         >
                                             Cancel
                                         </button>
