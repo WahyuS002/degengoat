@@ -6,9 +6,9 @@ import AlgorandLogo from '../../assets/images/algorand_logo.png'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
-import moment from 'moment-timezone'
 import ConnectWallet from '../../components/public/ConnectWallet'
 import { checkJoinedAddress } from '../../redux/blockchain/blockchainActions'
+import { zonedTimeToUtc } from 'date-fns-tz'
 
 export default function Shuffle() {
     let { slug } = useParams()
@@ -38,7 +38,7 @@ export default function Shuffle() {
     }
 
     const joinShuffleButton = (shuffle) => {
-        const currentTime = Date.parse(moment.tz('America/New_York').toDate())
+        const currentTime = Date.parse(zonedTimeToUtc(new Date(), 'America/New_York'))
         if (currentTime < +new Date(shuffle.started_at)) {
             return (
                 <button className="px-12 py-4 rounded-lg font-semibold text-lg text-semi-black bg-gray-400 cursor-not-allowed" disabled>

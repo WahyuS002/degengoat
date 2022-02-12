@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import moment from 'moment-timezone'
+import { zonedTimeToUtc } from 'date-fns-tz'
 
 function calculateTimeLeft(started_at, ended_at) {
-    const currentTime = Date.parse(moment.tz('America/New_York').toDate())
+    const currentTime = Date.parse(zonedTimeToUtc(new Date(), 'America/New_York'))
+
     if (currentTime < +new Date(started_at)) {
         // jika waktu sekarang kurang dari started_at artinya shuffle AKAN DIMULAI pada
         const difference = +new Date(started_at) - currentTime
@@ -37,7 +38,7 @@ function calculateTimeLeft(started_at, ended_at) {
 }
 
 export default function Countdown({ started_at, ended_at }) {
-    const currentTime = Date.parse(moment.tz('America/New_York').toDate())
+    const currentTime = Date.parse(zonedTimeToUtc(new Date(), 'America/New_York'))
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(started_at, ended_at))
     const [feedback, setFeedback] = useState(null)
 
