@@ -117,10 +117,10 @@ function Roadmap() {
                         <div className="bg-semi-black w-8 h-8 rounded-full"></div>
                     </div>
                     <div className="bg-semi-black shadow-2xl shadow-gray-400/10 rounded-xl  w-full md:w-5/12 p-6 md:px-8 md:py-6 ml-8 md:ml-0">
-                        <h3 className="font-semibold text-base md:text-lg">Collab with holders</h3>
+                        <h3 className="font-semibold text-base md:text-lg">Madness edition</h3>
                         <p className="mt-3 leading-relaxed tracking-wide text-gray-500 text-sm md:text-base">
-                            This will be the center of the collab edition between us as Degen Goat holders. As creator of Derivative, 90% of the sales will be transferred directly to your wallet, 10%
-                            will go to Degen Goat Bank. There is no rarity on this edition.
+                            Are you an artist? Perfect! This will be the center of the collab edition between us as Degen Goat holders. As a creator of Derivative, 90% of the sales will be transferred
+                            directly to your wallet, 10% will go to Degen Goat Bank. There is no rarity on this edition.
                             <br />
                             <br />
                             You can also create and sell your own art, including selling Degen Goat Twitter banner.
