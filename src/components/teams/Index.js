@@ -28,12 +28,6 @@ const teams = [
         label: 'Core Team',
     },
     {
-        name: 'Dave',
-        position: 'Advisor',
-        pfp: TeamImages.Dave,
-        label: 'Additional Team',
-    },
-    {
         name: 'Edgmeri',
         position: 'Marketing & Merch',
         pfp: TeamImages.Meri,

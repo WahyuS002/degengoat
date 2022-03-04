@@ -14,7 +14,6 @@ export const TeamImages = {
     Wahyu: require('../../assets/images/teams/wahyu.png'),
     Algonaut: require('../../assets/images/teams/algonaut.png'),
     Meri: require('../../assets/images/teams/meri.png'),
-    Dave: require('../../assets/images/teams/dave.png'),
 }
 
 export const AboutImages = {
