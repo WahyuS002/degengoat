@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import CustomLink from '../CustomLink'
-import ConnectWallet from './ConnectWallet'
 import HamburgerMenu from './HamburgerMenu'
 
 export default function Navbar() {
@@ -12,22 +11,21 @@ export default function Navbar() {
                     <div className="flex items-center">
                         <div className="w-5 h-5 bg-emerald-500 rounded-full"></div>
                         <div className="ml-2 font-semibold text-xl">DegenGoat</div>
-                        <div className="flex space-x-5 ml-12">
-                            <CustomLink to="/" className="py-2 px-5 rounded-lg text-sm">
-                                Home
-                            </CustomLink>
-                            <CustomLink to="/faq" className="py-2 px-5 rounded-lg text-sm">
-                                FAQ
-                            </CustomLink>
-                            <CustomLink to="/team" className="py-2 px-5 rounded-lg text-sm">
-                                Team
-                            </CustomLink>
-                            <CustomLink to="/shuffle" className="py-2 px-5 rounded-lg text-sm">
-                                Shuffle
-                            </CustomLink>
-                        </div>
                     </div>
-                    <ConnectWallet />
+                    <div className="flex space-x-5 ml-12">
+                        <CustomLink to="/" className="py-2 px-5 rounded-lg text-sm">
+                            Home
+                        </CustomLink>
+                        <CustomLink to="/faq" className="py-2 px-5 rounded-lg text-sm">
+                            FAQ
+                        </CustomLink>
+                        <CustomLink to="/team" className="py-2 px-5 rounded-lg text-sm">
+                            Team
+                        </CustomLink>
+                        <CustomLink to="/shuffle" className="py-2 px-5 rounded-lg text-sm">
+                            Shuffle
+                        </CustomLink>
+                    </div>
                 </div>
             </div>
             <div className="flex md:hidden justify-between items-center w-min-full py-4">

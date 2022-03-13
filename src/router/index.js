@@ -4,7 +4,6 @@ import FAQ from '../pages/FAQ'
 import Home from '../pages/Home'
 import Team from '../pages/Team'
 import ShuffleIndex from '../pages/shuffle/Index'
-import ShuffleShow from '../pages/shuffle/Show'
 
 export default function Index() {
     return (
@@ -15,7 +14,6 @@ export default function Index() {
                 <Route path="/team" element={<Team />}></Route>
 
                 <Route path="/shuffle" element={<ShuffleIndex />}></Route>
-                <Route path="/shuffle/:slug" element={<ShuffleShow />}></Route>
             </Routes>
         </>
     )
